@@ -63,6 +63,7 @@ $(document).ready(function() {
             var coordstring = dataset[index][2];
             var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
             addMarker(null, coords[0], coords[1], null);
+            $('td', row).eq(1).attr("address", dataset[index][1]);
         },
         dom: 'Bfrtip',
         buttons: [
@@ -95,18 +96,16 @@ $(document).ready(function() {
             },
         ],
         "columnDefs": [{
-            "targets": [2, 4],
-            "visible": false
-        },
-        {
-               targets: 1,
-               render: function ( data, type, row ) {
-                   return data.substr( 0, 31 ) + '...';
-               }
-           } ,
-
-
-      ]
+                "targets": [2, 4],
+                "visible": false
+            },
+            {
+                targets: 1,
+                render: function(data, type, row) {
+                    return data.substr(0, 31) + '...';
+                }
+            },
+        ]
     });
 
     $('#datatable tbody').on('click', 'tr', function() {
@@ -114,7 +113,7 @@ $(document).ready(function() {
         foo = this;
 
         var rid = $(this).children()[0];
-        var street = $($(this).children()[1]).text();
+        var street = $($(this).children()[1]).attr("address");
         // var coord = $($(this).children()[2]).text();
         // var condition = $(this).children()[2];
         // var type = $(this).children()[3];
