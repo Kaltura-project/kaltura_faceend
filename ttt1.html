@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- add on -->
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/assets/css/custom.min.css" /> -->
+
+   <!-- components -->
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+
+   <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <!-- add ons -->
+    <!-- <script src="https://bootswatch.com/assets/js/custom.js"></script> -->
+
+   <!-- component dependencies -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+<table id="table">
+</table>
+
+<script type="text/javascript">
+var dataset = [
+  {"ID":"1","Street":"Main Street","Condition":"Good","Type":"Stop Sign","Text":"1234" ,"imageURL":"//1234","last update":"20170601"},
+  {"ID":"2","Street":"Main Street","Condition":"Good","Type":"Not Stop Sign","Text":"134" ,"imageURL":"//124","last update":"20170301"},
+  {"ID":"3","Street":"Wind Street","Condition":"Good","Type":"Stop Sign","Text":"1234" ,"imageURL":"//1234","last update":"20170301"},
+  {"ID":"4","Street":"Main Street","Condition":"Good","Type":"Stop Sign","Text":"12" ,"imageURL":"//1234","last update":"20170301"},
+  {"ID":"5","Street":"Main Street","Condition":"Bad","Type":"Not Stop Sign","Text":"1234" ,"imageURL":"//1234","last update":"20170301"},
+  {"ID":"6","Street":"Wind Street","Condition":"Good","Type":"Stop Sign","Text":"1234" ,"imageURL":"//14","last update":"20170401"},
+  {"ID":"7","Street":"Main Street","Condition":"Good","Type":"Stop Sign","Text":"1234" ,"imageURL":"//1234","last update":"20170301"},
+  {"ID":"8","Street":"Main Street","Condition":"Good","Type":"Not Stop Sign","Text":"1234" ,"imageURL":"//1234","last update":"20170301"},
+  {"ID":"9","Street":"Main Street","Condition":"Bad","Type":"Stop Sign","Text":"124" ,"imageURL":"//1234","last update":"20170501"},
+];
+
+$(document).ready(function() {
+  $('#table').DataTable( {
+      data: dataset,
+      columns: [
+          { title: "ID" },
+          { title: "Street" },
+          { title: "Condition" },
+          { title: "Type" },
+          { title: "Text" },
+          { title: "imageURL" },
+          { title: "last update" },
+          ]
+    } );
+} );
+</script>
+</body>
+</html>
