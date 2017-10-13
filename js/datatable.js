@@ -80,10 +80,10 @@ $(document).ready(function() {
                 title: "Coord"
             },
             {
-                title: "Type"
+                title: "Condition"
             },
             {
-                title: "Condition"
+                title: "Type"
             },
             {
                 title: "Image URL"
@@ -112,9 +112,9 @@ $(document).ready(function() {
 
         var rid = $(this).children()[0];
         var street = $($(this).children()[1]).text();
-        var condition = $(this).children()[2];
-        var type = $(this).children()[3];
-        var image_url = $($(this).children()[4]).text();
+        // var condition = $(this).children()[2];
+        // var type = $(this).children()[3];
+        var image_url = $($(this).children()[3]).text();
         var last_updated = $(this).children()[5];
 
         $("#image-holder").attr("src", image_url);
