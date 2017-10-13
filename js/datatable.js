@@ -107,7 +107,8 @@ $(document).ready(function() {
             },
         ]
     });
-
+    $('#datatable').dataTable().fnSettings()._iDisplayLength = Math.round(($("body").height() * .75) / $("#datatable tr").height());
+    $('#datatable').dataTable().fnDraw();
     $('#datatable tbody').on('click', 'tr', function() {
         // console.log(this);
         foo = this;
