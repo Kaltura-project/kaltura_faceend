@@ -40,7 +40,7 @@ function adjustViewport() {
         map.setZoom(4);
     } else if (markerarray.length == 1) {
         map.setCenter(markerarray[0].position);
-        map.setZoom(10);
+        map.setZoom(14);
     } else {
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markerarray.length; i++) {
