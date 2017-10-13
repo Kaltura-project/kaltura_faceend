@@ -193,7 +193,7 @@ $(document).ready(function() {
             // var table = domObj.parent().parent();
             table.rows().deselect();
             table.row('#' + coords).select();
-            var image_url = $(domObj.children()[4]).text();
+            var image_url = $(domObj.children()[1]).attr("img");
             $("#image-holder").attr("src", image_url);
             // if (domObj.hasClass('selected')) {
             //     domObj.removeClass('selected');
