@@ -2,30 +2,18 @@
 <html>
 
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Bootstrap -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-    <!-- Bootswatch -->
-    <!-- <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.css" media="screen" /> -->
-    <!-- <link rel="stylesheet" href="https://bootswatch.com/assets/css/custom.min.css" /> -->
-    <!-- <script src="https://bootswatch.com/assets/js/custom.js"></script> -->
-
-
-    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
-
-    <!-- dataTables and other component dependencies -->
-    <!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/cr-1.4.1/sl-1.2.3/datatables.min.css"/>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/cr-1.4.1/sl-1.2.3/datatables.min.js"></script> -->
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/r-2.2.0/rr-1.2.3/sl-1.2.3/datatables.min.css"/>
-
+    <!-- dataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/r-2.2.0/rr-1.2.3/sl-1.2.3/datatables.min.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/r-2.2.0/rr-1.2.3/sl-1.2.3/datatables.min.js"></script>
@@ -38,20 +26,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <script>
-    String.prototype.hashCode = function(){
-    	var hash = 0;
-    	if (this.length == 0) return hash;
-    	for (i = 0; i < this.length; i++) {
-    		char = this.charCodeAt(i);
-    		hash = ((hash<<5)-hash)+char;
-    		hash = hash & hash; // Convert to 32bit integer
-    	}
-    	return hash;
-    }
-    </script>
     <!-- Maps Javascript API (Key AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo) -->
     <script src="js/main_map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo&callback=initMap" async defer></script>
@@ -62,21 +36,9 @@
 
     <!-- Custom JS -->
     <script src="js/datatable.js"></script>
-    <!-- <script>
-        $(document).ready(function() {
-            addMarker("321 Forest Hill Drive, Warner Robins, GA", null, null, "Home");
-            addMarker("1 East Loop Road, NYC, NY", null, null, "The House");
-            removeMarker("321 Forest Hill Drive, Warner Robins, GA", null, null, "Home");
-            $("#clear").click(function() {
-                removeAllMarkers();
-            });
-        });
-    </script> -->
 </head>
 
 <body>
-    <!-- <br>
-    <br> -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-7">
