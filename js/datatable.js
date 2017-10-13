@@ -7,6 +7,11 @@ function makeid() {
 
     return text;
 }
+// Truncate a string
+function strtrunc(str, max, add) {
+    add = add || '...';
+    return (typeof str === 'string' && str.length > max ? str.substring(0, max) + add : str);
+};
 
 var adapter = new LocalStorage('db');
 // const adapter = new FileSync('db.json')
@@ -52,6 +57,7 @@ var dataset = [
 ];
 var foo = null;
 $(document).ready(function() {
+
     var table = $('#datatable').DataTable({
         "createdRow": function(row, data, index) {
             $('td', row).eq(1).addClass('addr');
@@ -71,6 +77,9 @@ $(document).ready(function() {
                 title: "Street"
             },
             {
+                title: "Coord"
+            },
+            {
                 title: "Condition"
             },
             {
@@ -84,14 +93,22 @@ $(document).ready(function() {
             },
         ],
         "columnDefs": [{
-            "targets": [4],
-            // "visible": false
+            "targets": [2, 4],
+            "visible": false
         }, ]
     });
 
     $('#datatable tbody').on('click', 'tr', function() {
-        console.log(this);
+        // console.log(this);
         foo = this;
+
+        var rid = $(this).children()[0];
+        var street = $($(this).children()[1]).text();
+        // var coord = $($(this).children()[2]).text();
+        // var condition = $(this).children()[3];
+        // var type = $(this).children()[4];
+        var image_url = $($(this).children()[3]).text();
+        var last_updated = $(this).children()[4]; >>>
 
         var rid = $(this).children()[0];
         var street = $($(this).children()[1]).text();
