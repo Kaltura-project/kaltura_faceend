@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.css" media="screen" /> -->
   <!-- original bootstrap -->
@@ -25,10 +26,20 @@
   <script src="https://unpkg.com/lowdb@0.17/dist/low.min.js"></script>
   <script src="https://unpkg.com/lowdb@0.17/dist/LocalStorage.min.js"></script>
 
+  <!-- Maps Javascript API Key AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo -->
+  <script src="js/main_map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo&callback=initMap" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo"></script> -->
+
   <!-- custom JS -->
   <script src="js/datatable.js"></script>
+  <style>
+      #map {
+          /*width: 100vw;*/
+          height: 60vh;
+      }
+  </style></head>
 
-</head>
 <body>
     <br />
     <br />
@@ -38,26 +49,26 @@
           <div class="kaltura-datatable">
             <table id="datatable" class="display nowrap" cellspacing="0" width="100%">
               <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-              <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-              <tbody>
+              <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+              </tr>
+              </thead>
+            <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+              </tr>
+            </tfoot>
+            <tbody>
             <tr>
                 <td>Tiger Nixon</td>
                 <td>System Architect</td>
@@ -522,21 +533,30 @@
 
         <div class="col-1">
         </div>
-        
+
         <div class="col-5">
           <div class="kaltura-image">
             <a href="https://placeholder.com">
-              <img src="http://via.placeholder.com/660x350">
+              <img src="http://via.placeholder.com/660x200">
             </a>
           </div>
           <br />
           <div class="kaltura-map" id="map">
-            <a href="https://placeholder.com">
-              <img src="http://via.placeholder.com/400x350">
-            </a>
           </div>
         </div>
       </div>
     </div>
+
+
+  <script>
+      $(document).ready(function() {
+          addMarker("321 Forest Hill Drive, Warner Robins, GA", null, null, "Home");
+          addMarker("1 East Loop Road, NYC, NY", null, null, "The House");
+          removeMarker("321 Forest Hill Drive, Warner Robins, GA", null, null, "Home");
+          $("#clear").click(function() {
+              removeAllMarkers();
+          });
+      });
+  </script>
 </body>
 </html>
