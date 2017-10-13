@@ -34,26 +34,35 @@ function initMap() {
     });
 }
 
-function convertAddress(td) {
-    var coordstring = $(td).text();
-    var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
-    var loc = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
-    console.log(loc.lat(), loc.lng());
-    geocoder.geocode({
-        'location': loc
-    }, function(results, status) {
-        if (status == 'OK') {
-            var location = results[0].formatted_address;
-            if (location == null) {
-                alert("Must supply valid address or coordinates.");
-            }
-            console.log(location);
-            $(td).text(location);
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
-    });
-}
+// function convertAddress(td) {
+//     var loop = true;
+//     var coordstring = $(td).text();
+//     var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
+//     var loc = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+//     while (loop == true) {
+//         setTimeout(function() {
+//             geocoder.geocode({
+//                 'location': loc
+//             }, function(results, status) {
+//                 if (status == google.maps.GeocoderStatus.OK) {
+//                     var location = results[0].formatted_address;
+//                     if (location == null) {
+//                         alert("Must supply valid address or coordinates.");
+//                     }
+//                     console.log(loc.lat(), loc.lng(), location);
+//                     $(td).text(location);
+//                     loop = false;
+//                 } else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+//                     loop = true;
+//                 } else {
+//                     console.log(loc.lat(), loc.lng(), location);
+//                     alert('Geocode was not successful for the following reason: ' + status);
+//                     loop = false;
+//                 }
+//             });
+//         }, 2000);
+//     }
+// }
 
 function adjustViewport() {
     if (markerarray.length == 0) {
