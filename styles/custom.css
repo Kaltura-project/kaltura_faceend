@@ -19,3 +19,9 @@ body{
 .kaltura-datatable{
     height: 100%;
 }
+.pull-left{
+    float: left !important;
+}
+.pull-right{
+    float: right !important;
+}

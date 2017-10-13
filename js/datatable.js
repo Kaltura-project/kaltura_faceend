@@ -48,4 +48,6 @@ $(document).ready(function() {
         ],
         iDisplayLength: Math.round(($("body").height() * .55) / $("#datatable tr").height())
     });
+    $('#datatable_filter').addClass('pull-left');
+    $('#datatable_wrapper').prepend("<button class='btn btn-info btn-sm pull-right'>Export CSV</button>");
 });
