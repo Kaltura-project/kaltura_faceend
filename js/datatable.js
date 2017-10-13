@@ -141,11 +141,9 @@ $(document).ready(function() {
         // console.log(this);
         foo = this;
 
-        var rid = $(this).children()[0];
+        var rid = $($(this).children()[0]).text();
         var street = $($(this).children()[1]).attr("address");
-        // var coord = $($(this).children()[2]).text();
-        // var condition = $(this).children()[2];
-        // var type = $(this).children()[3];
+        var type = $($(this).children()[2]).text();
         var image_url = $($(this).children()[1]).attr("img");
         var last_updated = $(this).children()[6];
 
@@ -153,7 +151,7 @@ $(document).ready(function() {
 
         // Google Map View Port Manipulation
         removeAllMarkers();
-        addMarker(street, null, null, street);
+        addMarker(street, null, null, street, rid, type);
 
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');

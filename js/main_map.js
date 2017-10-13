@@ -55,7 +55,7 @@ function adjustViewport() {
 // Use addr string OR lat and lon coordinates.
 // loctitle is the title of the marker.
 function addMarker(addr, lat, lon, loctitle, rowId, type) {
-  console.log('rowId is '+ rowId);
+    console.log('rowId is ' + rowId);
     var location;
     if (lat == null || lon == null) {
         geocoder.geocode({
@@ -79,11 +79,19 @@ function addMarker(addr, lat, lon, loctitle, rowId, type) {
 
 // Helper function for addMarker.
 function placeMarker(location, loctitle, rowId, type) {
-   // TODO: make take an argument of type and switch to the right url
-
-    var icon_url = 'img/stop_icon.png';
-    var icon_url = 'img/yield_icon.png';
-    var icon_url = 'img/signal_icon.png';
+    // TODO: make take an argument of type and switch to the right url
+    var icon_url;
+    switch (type) {
+        case "STOP":
+            icon_url = 'img/stop_icon.png';
+            break;
+        case "YIELD":
+            icon_url = 'img/yield_icon.png';
+            break;
+        case "SIGNAL":
+            icon_url = 'img/signal_icon.png';
+    }
+    console.log(type, icon_url);
     // icon_url = 'https://image.flaticon.com/icons/png/128/567/567385.png';
     var marker = new google.maps.Marker({
         map: map,
