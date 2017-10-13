@@ -7,6 +7,11 @@ function makeid() {
 
   return text;
 }
+// Truncate a string
+function strtrunc(str, max, add){
+   add = add || '...';
+   return (typeof str === 'string' && str.length > max ? str.substring(0, max) + add : str);
+};
 
 var adapter = new LocalStorage('db');
 // const adapter = new FileSync('db.json')
@@ -81,29 +86,20 @@ $(document).ready(function(){
                 "targets": [ 2, 4 ],
                 "visible": false
             },
-            // {
-            //   'targets': 1,
-            //   'render': function(data, type, full, meta){
-            //      if(type === 'display'){
-            //         data = strtrunc(data, 10);
-            //      }
-            //      return data;
-            //   },
-            // }
-
           ]
   });
 
   $('#datatable tbody').on( 'click', 'tr', function () {
-      console.log(this);
+      // console.log(this);
       foo = this;
 
       var rid = $(this).children()[0];
       var street = $($(this).children()[1]).text();
-      var condition = $(this).children()[2];
-      var type = $(this).children()[3];
-      var image_url = $($(this).children()[4]).text();
-      var last_updated = $(this).children()[5];
+      // var coord = $($(this).children()[2]).text();
+      // var condition = $(this).children()[3];
+      // var type = $(this).children()[4];
+      var image_url = $($(this).children()[3]).text();
+      var last_updated = $(this).children()[4];
 
       $("#image-holder").attr("src",image_url);
 
