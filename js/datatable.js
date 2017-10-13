@@ -34,9 +34,9 @@ const db = low(adapter)
 // console.log('State has been updated')
 // db.set('ID', makeid()).write();
 var dataset = [
-  ["1", "", "Good", "Stop", "Stop", "stop_url", "Timestamp 2"],
-  ["2", "", "Poor", "Yield", "Yld", "yield_url", "Timestamp 1"],
 
+  ["1", "MacKenzie and Strathmoor", "Good", "Stop", "images/1.jpg", "Timestamp 2"],
+  ["2", "", "Poor", "Yield", "images/2.png", "Timestamp 1"],
 ];
 var foo = null;
 $(document).ready(function(){
@@ -55,12 +55,14 @@ $(document).ready(function(){
      { title: "Street" },
      { title: "Condition" },
      { title: "Type" },
-     { title: "Text" },
      { title: "Image URL" },
      { title: "Last Updated" },
     ]
   });
 
+  dataset = [
+    ["1", "", "Good", "Stop", "Stop", "stop_url", "Timestamp 2"],
+  ]
 
   $('#datatable tbody').on( 'click', 'tr', function () {
       console.log(this);
