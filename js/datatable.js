@@ -166,6 +166,11 @@ $(document).ready(function() {
     $('.buttons-excel').addClass('btn btn-info btn-sm');
     $('.buttons-csv').addClass('btn btn-info btn-sm');
     $('.buttons-pdf').addClass('btn btn-info btn-sm');
+    $('.dt-buttons').prepend("<button class='btn btn-info btn-sm' id='reset'>Reset</button>")
+
+    $('#reset').on('click', function() {
+        location.reload();
+    });
 
     $('.buttons-copy').removeClass('dt-button');
     $('.buttons-excel').removeClass('dt-button');
