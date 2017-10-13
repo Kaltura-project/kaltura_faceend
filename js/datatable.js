@@ -221,4 +221,10 @@ $(document).ready(function() {
 
         });
     });
+
+    // $("#datatable_filter").html('<input type="search" class="form-control" placeholder="Search..." aria-controls="datatable">');
+    // $
+    // $("#datatable_filter").children().children().addClass('form-control');
+    // $("#datatable_filter").children().children().attr('placeholder', 'Search...');
+
 });
