@@ -35,11 +35,11 @@ const db = low(adapter)
 // db.set('ID', makeid()).write();
 var dataset = [
 
-  ["1", "MacKenzie and Strathmoor", "Good", "Stop", "img/1.png", "Timestamp 2"],
-  ["2", "", "Poor", "Yield", "img/2.png", "Timestamp 1"],
-  ["row-4dsi-caex.ge5c","(-83.20635641917033 42.370016069270704)","STOP","GOOD","img/1.png","14-Dec-2014 00:08:31"],
+  ["1", "MacKenzie and Strathmoor", "STOP", "Good", "img/1.png", "Timestamp 2"],
+  ["2", "8558 Strathmoor", "STOP", "BAD", "img/2.png", "Timestamp 1"],
+  ["row-4dsi-caex.ge5c","8800 Mark Twain","STOP","GOOD","img/1.png","14-Dec-2014 00:08:31"],
   ["row-7vky_j4pn-u6zr","(-83.2062402542254 42.36767742985984)","STOP","GOOD","img/2.png","27-Aug-2011 15:12:41"],
-  ["row-m4qe-tv9n_94z9","(-83.20526145747874 42.37243702723885)","STOP","BAD","img/3.png","19-Aug-2017 23:10:49"],
+  ["row-m4qe-tv9n_94z9","Mark Twain and Joy","STOP","BAD","img/3.png","19-Aug-2017 23:10:49"],
   ["row-ery5_jrrc-68vm","(-83.20381340661926 42.36770177184374)","STOP","GOOD","img/4.png","03-Jan-2010 06:08:53"],
   ["row-32yr-tkxm.egm4","(-83.2028194532294 42.372473942986396)","STOP","GOOD","img/6.png","12-Apr-2015 15:45:45"],
   ["row-f3i9~27te-x34q","(-83.20403922792286 42.37245547910624)","STOP","GOOD","img/5.png","26-Dec-2013 08:46:33"],
@@ -85,13 +85,18 @@ $(document).ready(function(){
       foo = this;
 
       var rid = $(this).children()[0];
-      var street = $(this).children()[1];
+      var street = $($(this).children()[1]).text();
       var condition = $(this).children()[2];
       var type = $(this).children()[3];
       var image_url = $($(this).children()[4]).text();
       var last_updated = $(this).children()[5];
 
       $("#image-holder").attr("src",image_url);
+
+      // Google Map View Port Manipulation
+      removeAllMarkers();
+      var complete_street = street + "St, Detroit, MI 48228, USA";
+      removeMarker(complete_street, null, null, complete_street);
 
       if ( $(this).hasClass('selected') ) {
           $(this).removeClass('selected');
