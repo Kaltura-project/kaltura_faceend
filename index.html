@@ -9,7 +9,56 @@
 <body>
     <div class="container">
       <div class="kaltura-datatable">
+        <h1> Hello!</h1>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+        <script type="text/javascript" src="jquery-1.4.4.js"></script>
+        <script type="text/javascript" language="javascript">
+        <script type="text/javascript">
+        var dataSet = []
+        $(document).ready(function() {
+          var txt = '{"employees":[' +
+          '{"firstName":"Bill","lastName":"Gates" },' +  
+          '{"firstName":"George","lastName":"Bush" },' +
+          '{"firstName":"Thomas","lastName":"Carter" }]}';
+          var obj = eval ("(" + txt + ")");
 
+          document.getElementById("fname").innerHTML=obj.employees[1].firstName
+          document.getElementById("lname").innerHTML=obj.employees[1].lastName
+        $('#table').DataTable( {
+            data: dataSet,
+            columns: [
+                { title: "ID" },
+                { title: "Street" },
+                { title: "Condition" },
+                { title: "Type" },
+                { title: "Text" },
+                { title: "Image URL" },
+                { title: "last update" }
+                ]
+            } );
+        var table = $('#example').DataTable();
+        $('#myFilter').on( 'keyup', function () {
+            table
+                .search( this.value )
+                .draw();
+        } );
+
+
+
+
+
+
+        } );
+
+        var table = $('#example').DataTable();
+
+        $('#myFilter').on( 'keyup', function () {
+            table
+                .search( this.value )
+                .draw();
+        } );
+        </script>
       </div>
       <div class="kaltura-image">
 
@@ -21,11 +70,12 @@
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../assets/js/custom.js"></script>
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://bootswatch.com/assets/js/custom.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
 </body>
 </html>
