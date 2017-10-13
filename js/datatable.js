@@ -60,7 +60,9 @@ $(document).ready(function() {
 
     var table = $('#datatable').DataTable({
         "createdRow": function(row, data, index) {
-            $('td', row).eq(1).addClass('addr');
+            var coordstring = dataset[index][2];
+            var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
+            addMarker(null, coords[0], coords[1], null);
         },
         dom: 'Bfrtip',
         buttons: [

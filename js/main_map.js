@@ -84,10 +84,12 @@ function placeMarker(location, loctitle) {
         position: location,
         title: loctitle
     });
-    var infowindow = new google.maps.InfoWindow({
-        content: loctitle
-    });
-    infowindow.open(map, marker);
+    if (loctitle != null) {
+        var infowindow = new google.maps.InfoWindow({
+            content: loctitle
+        });
+        infowindow.open(map, marker);
+    }
     markerarray.push(marker);
     adjustViewport();
 }
