@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-</script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Maps Javascript API Key AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo -->
+    <script src="js/main_map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo&callback=initMap" async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo"></script> -->
+
+    <style>
+        #map {
+            width: 100vw;
+            height: 80vh;
+        }
+    </style>
 </head>
+
 <body>
-
-
+    <div id="map"></div>
+    <div id="debug"><button id="clear"></button</div>
 </body>
-</html>
 
+<script>
+    $(document).ready(function() {
+        addMarker("321 Forest Hill Drive, Warner Robins, GA", null, null, "Home");
+        addMarker("1 East Loop Road, NYC, NY", null, null, "The House");
+        removeMarker("321 Forest Hill Drive, Warner Robins, GA", null, null, "Home");
+        $("#clear").click(function() {
+            removeAllMarkers();
+        });
+    });
+</script>
+
+</html>
