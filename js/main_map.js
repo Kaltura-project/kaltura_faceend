@@ -84,6 +84,11 @@ function placeMarker(location, loctitle) {
         position: location,
         title: loctitle
     });
+    marker.addListener('click', function() {
+        console.log(marker.position.lat(), marker.position.lng());
+        //TODO: HAN
+    });
+
     if (loctitle != null) {
         var infowindow = new google.maps.InfoWindow({
             content: loctitle
