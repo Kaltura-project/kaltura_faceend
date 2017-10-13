@@ -1,43 +1,3 @@
-function makeid() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (var i = 0; i < 5; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
-// Truncate a string
-function strtrunc(str, max, add) {
-    add = add || '...';
-    return (typeof str === 'string' && str.length > max ? str.substring(0, max) + add : str);
-};
-
-var adapter = new LocalStorage('db');
-// const adapter = new FileSync('db.json')
-const db = low(adapter)
-
-// // Set some defaults
-// db.defaults({ posts: [], user: {} })
-//   .write()
-//
-// // Add a post
-// db.get('posts')
-//   .push({ id: 1, title: 'lowdb is awesome'})
-//   .write()
-//
-// // Set a user using Lodash shorthand syntax
-// db.set('user.name', 'typicode')
-//   .write()
-//
-// console.log(makeid());
-//
-// db.write();
-// console.log('State has been saved')
-// var foo = db.read('posts');
-// console.log(foo);
-// console.log('State has been updated')
-// db.set('ID', makeid()).write();
 var dataset = [
     ["4dsi-caex", "16301-16399 Elmira St, Detroit, MI 48227, USA", "(42.370016069270704 -83.20635641917033)", "STOP", "GOOD", "img/1.png", "21/06/15"],
     ["7vky_j4pn", "16301-16399 Orangelawn St, Detroit, MI 48227, USA", "(42.36767742985984 -83.2062402542254)", "STOP", "GOOD", "img/2.png", "02/03/08"],
@@ -75,9 +35,11 @@ var dataset = [
     ["crc2.wvux", "18919 Schoolcraft Ave, Detroit, MI 48223 USA", "(42.38636611830714 -83.22637831807695)", "SIGNAL", "GOOD", "", "26/07/07"],
     ["qwvk_35zz", "16003-16133 Fenkell Ave, Detroit, MI 48227 USA", "(42.40127431745006 -83.20572845005044)", "SIGNAL", "GOOD", "", "10/04/08"]
 ];
+
 var foo = null;
 var markers = [];
 var table = null;
+
 $(document).ready(function() {
 
     table = $('#datatable').DataTable({
@@ -88,6 +50,8 @@ $(document).ready(function() {
             var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
             $('td', row).eq(1).attr("address", dataset[index][1]);
             $('td', row).eq(1).attr("img", dataset[index][5]);
+            coords[0] = coords[0].substring(0, coords[0].indexOf(".") + 8);
+            coords[1] = coords[1].substring(0, coords[1].indexOf(".") + 8);
             var coordId = coords.join('-').replace(/\./g, '').replace(/-/g, '');
             $(row).attr('id', coordId);
             var type = dataset[index][3];
@@ -135,10 +99,22 @@ $(document).ready(function() {
             },
         ]
     });
+
     $('#datatable').dataTable().fnSettings()._iDisplayLength = Math.round(($("body").height() * .75) / $("#datatable tr").height());
     $('#datatable').dataTable().fnDraw();
+
+    $('.buttons-copy').addClass('btn btn-info btn-sm');
+    $('.buttons-excel').addClass('btn btn-info btn-sm');
+    $('.buttons-csv').addClass('btn btn-info btn-sm');
+    $('.buttons-pdf').addClass('btn btn-info btn-sm');
+    $('.buttons-copy').removeClass('dt-button');
+    $('.buttons-excel').removeClass('dt-button');
+    $('.buttons-csv').removeClass('dt-button');
+    $('.buttons-pdf').removeClass('dt-button');
+
+    $('.dt-buttons').prepend("<button class='btn btn-warning btn-sm' id='reset'>Reset</button>")
+
     $('#datatable tbody').on('click', 'tr', function() {
-        // console.log(this);
         foo = this;
 
         var rid = $($(this).children()[0]).text();
@@ -161,79 +137,48 @@ $(document).ready(function() {
         }
     });
 
-
-    $('.buttons-copy').addClass('btn btn-info btn-sm');
-    $('.buttons-excel').addClass('btn btn-info btn-sm');
-    $('.buttons-csv').addClass('btn btn-info btn-sm');
-    $('.buttons-pdf').addClass('btn btn-info btn-sm');
-    $('.dt-buttons').prepend("<button class='btn btn-warning btn-sm' id='reset'>Reset</button>")
-
     $('#reset').on('click', function() {
         location.reload();
     });
 
-    $('.buttons-copy').removeClass('dt-button');
-    $('.buttons-excel').removeClass('dt-button');
-    $('.buttons-csv').removeClass('dt-button');
-    $('.buttons-pdf').removeClass('dt-button');
     markers.forEach(function(marker) {
         marker.addListener('click', function() {
             var lat = marker.position.lat();
             var lng = marker.position.lng();
-
             console.log('lat ' + lat);
             console.log('lng ' + lng);
-            var coordId = lat + "" + lng + "";
+            var lats = lat + "";
+            var lngs = lng + "";
+            lats = lats.substring(0, lats.indexOf(".") + 8);
+            lngs = lngs.substring(0, lngs.indexOf(".") + 8);
+            coordId = lats + lngs;
             console.log('coordId ' + coordId);
             var coords = coordId.split(".").join("").split("-").join('');
             console.log(coords);
-
             console.log($('#' + coords));
-            domObj = $('#' + coords);
-            // var table = domObj.parent().parent();
+            console.log(table.rows('#' + coords));
+            var domObj = $('#' + coords);
             table.rows().deselect();
-            table.row('#' + coords).select();
+            table.rows('#' + coords).select();
             var image_url = $(domObj.children()[1]).attr("img");
             $("#image-holder").attr("src", image_url);
-            // if (domObj.hasClass('selected')) {
-            //     domObj.removeClass('selected');
-            // } else {
-            //     domObj.parent().parent().find('tr.selected').removeClass('selected');
-            //     domObj.addClass('selected');
-            // }
-
-            // console.log(marker)
-            // var coordId = marker.position.lat() + "-" + marker.position.lng();
-            // coordId = coordId;
-            // // // coordId = coordId.hashCode();
-            // // console.log('coordId in addListener '+ coordId);
-            // //   // console.log(marker.position.lat(), marker.position.lng());
-            // //   console.log(coordId);
-            // //   console.log($("#"+coordId));
-            // //   console.log($("#"+coordId).html());
-            //   console.log('rowId ' + rowId);
-            //   console.log($('#'+rowId));
-            //
-            //   if ($('#'+rowId).hasClass('selected')) {
-            //       $('#'+rowId).removeClass('selected');
-            //   } else {
-            //       $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
-            //       $('#'+rowId).addClass('selected');
-            //   }
-            //   // $('#'+rowId).hasClass('selected');
-            //   console.log('#'+rowId + ' added with class selected ');
-            //   // $('#'+rowId).removeClass('selected');
-            //   console.log($('#'+rowId).parent().parent());
-            //   $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
-            //
-            //   //TODO: HAN
-
         });
     });
 
-    // $("#datatable_filter").html('<input type="search" class="form-control" placeholder="Search..." aria-controls="datatable">');
-    // $
-    // $("#datatable_filter").children().children().addClass('form-control');
-    // $("#datatable_filter").children().children().attr('placeholder', 'Search...');
-
 });
+
+
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+// Truncate a string
+function strtrunc(str, max, add) {
+    add = add || '...';
+    return (typeof str === 'string' && str.length > max ? str.substring(0, max) + add : str);
+};
