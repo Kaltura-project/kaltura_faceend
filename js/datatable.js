@@ -167,6 +167,10 @@ $(document).ready(function() {
     $('.buttons-csv').addClass('btn btn-info btn-sm');
     $('.buttons-pdf').addClass('btn btn-info btn-sm');
 
+    $('.buttons-copy').removeClass('dt-button');
+    $('.buttons-excel').removeClass('dt-button');
+    $('.buttons-csv').removeClass('dt-button');
+    $('.buttons-pdf').removeClass('dt-button');
     markers.forEach(function(marker) {
         marker.addListener('click', function() {
             var lat = marker.position.lat();
