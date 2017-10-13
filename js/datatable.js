@@ -39,21 +39,41 @@ const db = low(adapter)
 // console.log('State has been updated')
 // db.set('ID', makeid()).write();
 var dataset = [
-    ["4dsi-caex", "16301-16399 Elmira St, Detroit, MI 48227, USA", "(42.370016069270704 -83.20635641917033)", "STOP", "GOOD", "img/1.png", "12/14/14"],
-    ["7vky_j4pn", "16301-16399 Orangelawn St, Detroit, MI 48227, USA", "(42.36767742985984 -83.2062402542254)", "STOP", "GOOD", "img/2.png", "8/27/11"],
-    ["m4qe-tv9n", "16231 Plymouth Rd, Detroit, MI 48227, USA", "(42.37243702723885 -83.20526145747874)", "STOP", "DAMAGED", "img/3.png", "8/19/17"],
-    ["m4qe-tv9n", "16101-16199 Orangelawn Ave, Detroit, MI 48227, USA", "(42.36770177184374 -83.20381340661926)", "STOP", "GOOD", "img/4.png", "1/3/10"],
-    ["32yr-tkxm", "16027-16031 Plymouth Rd, Detroit, MI 48227, USA", "(42.372473942986396 -83.2028194532294)", "STOP", "GOOD", "img/6.png", "4/12/15"],
-    ["f3i9~27te", "16101,Plymouth Road,Detroit, MI 48227, USA", "(42.37245547910624 -83.20403922792286)", "STOP", "GOOD", "img/5.png", "12/26/13"],
-    ["pin6~fzzh", "15728,Plymouth Road,Detroit, MI 48227, USA", "(42.37253260300733 -83.20046054481023)", "STOP", "GOOD", "img/8.png", "5/8/14"],
-    ["t66i_a8c5", "15801-15999,Elmira Street,Detroit, MI 48227, USA", "(42.370120077216555 -83.2014855430128)", "STOP", "GOOD", "img/7.png", "2/12/14"],
-    ["29hb.dtw5", "15622-15630,Plymouth Road,Detroit, MI 48227, USA", "(42.37253882712133 -83.19920538289166)", "STOP", "GOOD", "img/9.png", "8/28/16"],
-    ["kjbu.86zy", "15601-15699,Orangelawn Street,Detroit, MI 48227, USA", "(42.3677972736828 -83.19901162835401)", "STOP", "GOOD", "img/10.png", "1/28/16"],
-    ["sphm_x3b6", "15601-15699,Elmira Street,Detroit, MI 48227, USA", "(42.370167595297254 -83.19910851045566)", "STOP", "DAMAGED", "img/11.png", "8/31/15"],
-    ["wdsw.43rz", "15501,Plymouth Road,Detroit, MI 48227, USA", "(42.372544645069155 -83.1980005772768)", "STOP", "GOOD", "img/13.png", "12/29/15"],
-    ["2pqk-s9dy", "15501-15599,Elmira Street,Detroit, MI 48227, USA", "(42.3701861578512 -83.19790351198802)", "STOP", "GOOD", "img/12.png", "6/14/15"],
-    ["vw6s-9yjf", "17701-18099,Elmira Street,Detroit, MI 48227, USA", "(42.36981709888222 -83.21579463529098)", "STOP", "GOOD", "img/14.png", "9/12/15"],
-    ["yetw-2acc", "17701-18109,Orangelawn Street,Detroit, MI 48227, USA", "(42.3674740646073 -83.21578257192174)", "STOP", "GOOD", "img/15.png", "1/3/10"]
+    ["4dsi-caex", "16301-16399 Elmira St, Detroit, MI 48227, USA", "(42.370016069270704 -83.20635641917033)", "STOP", "GOOD", "img/1.png", "11/08/10"],
+    ["7vky_j4pn", "16301-16399 Orangelawn St, Detroit, MI 48227, USA", "(42.36767742985984 -83.2062402542254)", "STOP", "GOOD", "img/2.png", "11/06/09"],
+    ["m4qe-tv9n", "16231 Plymouth Rd, Detroit, MI 48227, USA", "(42.37243702723885 -83.20526145747874)", "STOP", "DAMAGED", "img/3.png", "13/05/18"],
+    ["m4qe-tv9n", "16101-16199 Orangelawn Ave, Detroit, MI 48227, USA", "(42.36770177184374 -83.20381340661926)", "STOP", "GOOD", "img/4.png", "14/03/08"],
+    ["32yr-tkxm", "16027-16031 Plymouth Rd, Detroit, MI 48227, USA", "(42.372473942986396 -83.2028194532294)", "STOP", "GOOD", "img/6.png", "14/01/10"],
+    ["f3i9~27te", "16101,Plymouth Road,Detroit, MI 48227, USA", "(42.37245547910624 -83.20403922792286)", "STOP", "GOOD", "img/5.png", "10/12/16"],
+    ["pin6~fzzh", "15728,Plymouth Road,Detroit, MI 48227, USA", "(42.37253260300733 -83.20046054481023)", "STOP", "GOOD", "img/8.png", "16/12/05"],
+    ["t66i_a8c5", "15801-15999,Elmira Street,Detroit, MI 48227, USA", "(42.370120077216555 -83.2014855430128)", "STOP", "GOOD", "img/7.png", "14/10/08"],
+    ["29hb.dtw5", "15622-15630,Plymouth Road,Detroit, MI 48227, USA", "(42.37253882712133 -83.19920538289166)", "STOP", "GOOD", "img/9.png", "10/06/15"],
+    ["kjbu.86zy", "15601-15699,Orangelawn Street,Detroit, MI 48227, USA", "(42.3677972736828 -83.19901162835401)", "STOP", "GOOD", "img/10.png", "15/05/15"],
+    ["sphm_x3b6", "15601-15699,Elmira Street,Detroit, MI 48227, USA", "(42.370167595297254 -83.19910851045566)", "STOP", "DAMAGED", "img/11.png", "11/05/23"],
+    ["wdsw.43rz", "15501,Plymouth Road,Detroit, MI 48227, USA", "(42.372544645069155 -83.1980005772768)", "STOP", "GOOD", "img/13.png", "10/03/02"],
+    ["2pqk-s9dy", "15501-15599,Elmira Street,Detroit, MI 48227, USA", "(42.3701861578512 -83.19790351198802)", "STOP", "GOOD", "img/12.png", "16/12/31"],
+    ["vw6s-9yjf", "17701-18099,Elmira Street,Detroit, MI 48227, USA", "(42.36981709888222 -83.21579463529098)", "STOP", "GOOD", "img/14.png", "13/07/23"],
+    ["yetw-2acc", "17701-18109,Orangelawn Street,Detroit, MI 48227, USA", "(42.3674740646073 -83.21578257192174)", "STOP", "GOOD", "img/15.png", "11/02/24"],
+    ["cbiz.it57", "16201-16299 Orangelawn St, Detroit, MI 48227 USA", "(-83.20501833840981 42.36768405698519)", "YIELD", "GOOD", "", "14/03/30"],
+    ["pz59~9iff", "16201-16299 Elmira St, Detroit, MI 48227 USA", "(-83.20511546545245 42.37005346300989)", "YIELD", "GOOD", "", "14/07/29"],
+    ["wgjh_ptn2", "16101-16199 Elmira St, Detroit, MI 48227 USA", "(-83.20391047097804 42.37007208931411)", "YIELD", "GOOD", "", "14/05/16"],
+    ["b663_airb", "16001-16099 Orangelawn St, Detroit, MI 48227 USA", "(-83.20260833834024 42.367726757146535)", "YIELD", "DAMAGED", "", "10/07/2014"],
+    ["R6ci-gfiz", "16001-16099 Elmira St, Detroit, MI 48227 USA", "(-83.20270549275936 42.370089792426086)", "YIELD", "DAMAGED", "", "14/11/17"],
+    ["puae~rs2c", "15801-15999 Orangelawn St, Detroit, MI 48227 USA", "(-83.20138957747726 42.367761605501734)", "YIELD", "DAMAGED", "", "15/02/23"],
+    ["hjtp.vv9b", "15701-15799 Orangelawn Ave, Detroit, MI 48228 USA", "(-83.20021656335021 42.36777960978356)", "YIELD", "GOOD", "", "13/02/10"],
+    ["Thnr-a3ui", "15701-15799 Elmira St, Detroit, MI 48227 USA", "(-83.20032945189784 42.37015009430834)", "YIELD", "GOOD", "", "15/11/20"],
+    ["Pttm-vh8t", "15501-15599 Orangelawn Ave, Detroit, MI 48227 USA", "(-83.197823658883 42.36782693697782)", "YIELD", "GOOD", "", "14/07/02"],
+    ["bhzc_7mva", "17601-17699 Orangelawn Ave, Detroit, MI 48227 USA", "(-83.21471943852903 42.36752702368048)", "YIELD", "GOOD", "", "15/11/21"],
+    ["Ndkq-vej4", "16319 Plymouth Rd, Detroit, MI 48227 USA", "(-83.2064006025636 42.37239585942656)", "SIGNAL", "GOOD", "", "10/07/2014"],
+    ["B3qe-bsju", "15820 Plymouth Rd, Detroit, MI 48227 USA", "(-83.20159947391522 42.372503318607976)", "SIGNAL", "GOOD", "", "14/01/30"],
+    ["meha~4kvj", "17707 Plymouth Rd, Detroit, MI 48227 USA", "(-83.21585476795326 42.372150603893935)", "SIGNAL", "GOOD", "", "14/11/11"],
+    ["Dq6i-asie", "16825 Plymouth Rd, Detroit, MI 48227 USA", "(-83.21120749973424 42.3723073782159)", "SIGNAL", "GOOD", "", "12/10/2018"],
+    ["swyi~bgdg", "18417-18435 Plymouth Rd, Detroit, MI 48228 USA", "(-83.22087793193279 42.372119450349274)", "SIGNAL", "GOOD", "", "12/05/2007"],
+    ["tw5f~b3m7", "16124 Fullerton Ave, Detroit, MI 48227 USA", "(-83.20432019526588 42.37992144950064)", "SIGNAL", "GOOD", "", "14/08/27"],
+    ["mrkg_xt3t", "16135 Schoolcraft Ave, Detroit, MI 48227 USA", "(-83.20480492837527 42.38687047283606)", "SIGNAL", "GOOD", "", "13/11/23"],
+    ["3b59-mjzz", "16611-16799 Schoolcraft Ave, Detroit, MI 48227 USA", "(-83.21095168323627 42.38672193266466)", "SIGNAL", "GOOD", "", "12/01/2009"],
+    ["crc2.wvux", "18919 Schoolcraft Ave, Detroit, MI 48223 USA", "(-83.22637831807695 42.38636611830714)", "SIGNAL", "GOOD", "", "12/10/2021"],
+    ["qwvk_35zz", "16003-16133 Fenkell Ave, Detroit, MI 48227 USA", "(-83.20572845005044 42.40127431745006)", "SIGNAL", "GOOD", "", "12/10/2027"]
 ];
 var foo = null;
 var markers = [];
@@ -73,7 +93,7 @@ $(document).ready(function() {
 
             // var coordId = coords.join('-').substr( 0, 31 );
             // var coordId = coords.join('-').hashCode();
-            console.log('coords ' +  coordId);
+            console.log('coords ' + coordId);
             $(row).attr('id', coordId);
             markers.push(addMarker(null, coords[0], coords[1], null, coordId));
 
@@ -109,7 +129,7 @@ $(document).ready(function() {
             },
         ],
         "columnDefs": [{
-                "targets": [2],
+                "targets": [2, 5],
                 "visible": false
             },
             {
@@ -155,57 +175,57 @@ $(document).ready(function() {
     $('.buttons-pdf').addClass('btn btn-info');
 
     markers.forEach(function(marker) {
-      marker.addListener('click', function() {
-        var lat = marker.position.lat();
-        var lng = marker.position.lng();
+        marker.addListener('click', function() {
+            var lat = marker.position.lat();
+            var lng = marker.position.lng();
 
-        console.log('lat ' +lat);
-        console.log('lng ' +lng);
-        var coordId = lat + "" + lng + "";
-        console.log('coordId ' + coordId);
-        var coords = coordId.split(".").join("").split("-").join('');
-        console.log(coords);
+            console.log('lat ' + lat);
+            console.log('lng ' + lng);
+            var coordId = lat + "" + lng + "";
+            console.log('coordId ' + coordId);
+            var coords = coordId.split(".").join("").split("-").join('');
+            console.log(coords);
 
-        console.log($('#' + coords));
-        domObj = $('#' + coords);
-        // var table = domObj.parent().parent();
-        table.rows().deselect();
-        table.row('#' + coords).select();
-        var image_url = $(domObj.children()[4]).text();
-        $("#image-holder").attr("src", image_url);
-        // if (domObj.hasClass('selected')) {
-        //     domObj.removeClass('selected');
-        // } else {
-        //     domObj.parent().parent().find('tr.selected').removeClass('selected');
-        //     domObj.addClass('selected');
-        // }
+            console.log($('#' + coords));
+            domObj = $('#' + coords);
+            // var table = domObj.parent().parent();
+            table.rows().deselect();
+            table.row('#' + coords).select();
+            var image_url = $(domObj.children()[4]).text();
+            $("#image-holder").attr("src", image_url);
+            // if (domObj.hasClass('selected')) {
+            //     domObj.removeClass('selected');
+            // } else {
+            //     domObj.parent().parent().find('tr.selected').removeClass('selected');
+            //     domObj.addClass('selected');
+            // }
 
-        // console.log(marker)
-        // var coordId = marker.position.lat() + "-" + marker.position.lng();
-        // coordId = coordId;
-        // // // coordId = coordId.hashCode();
-        // // console.log('coordId in addListener '+ coordId);
-        // //   // console.log(marker.position.lat(), marker.position.lng());
-        // //   console.log(coordId);
-        // //   console.log($("#"+coordId));
-        // //   console.log($("#"+coordId).html());
-        //   console.log('rowId ' + rowId);
-        //   console.log($('#'+rowId));
-        //
-        //   if ($('#'+rowId).hasClass('selected')) {
-        //       $('#'+rowId).removeClass('selected');
-        //   } else {
-        //       $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
-        //       $('#'+rowId).addClass('selected');
-        //   }
-        //   // $('#'+rowId).hasClass('selected');
-        //   console.log('#'+rowId + ' added with class selected ');
-        //   // $('#'+rowId).removeClass('selected');
-        //   console.log($('#'+rowId).parent().parent());
-        //   $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
-        //
-        //   //TODO: HAN
+            // console.log(marker)
+            // var coordId = marker.position.lat() + "-" + marker.position.lng();
+            // coordId = coordId;
+            // // // coordId = coordId.hashCode();
+            // // console.log('coordId in addListener '+ coordId);
+            // //   // console.log(marker.position.lat(), marker.position.lng());
+            // //   console.log(coordId);
+            // //   console.log($("#"+coordId));
+            // //   console.log($("#"+coordId).html());
+            //   console.log('rowId ' + rowId);
+            //   console.log($('#'+rowId));
+            //
+            //   if ($('#'+rowId).hasClass('selected')) {
+            //       $('#'+rowId).removeClass('selected');
+            //   } else {
+            //       $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
+            //       $('#'+rowId).addClass('selected');
+            //   }
+            //   // $('#'+rowId).hasClass('selected');
+            //   console.log('#'+rowId + ' added with class selected ');
+            //   // $('#'+rowId).removeClass('selected');
+            //   console.log($('#'+rowId).parent().parent());
+            //   $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
+            //
+            //   //TODO: HAN
 
-      });
+        });
     });
 });
