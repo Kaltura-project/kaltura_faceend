@@ -118,8 +118,8 @@ $(document).ready(function() {
         // var coord = $($(this).children()[2]).text();
         // var condition = $(this).children()[2];
         // var type = $(this).children()[3];
-        var image_url = $($(this).children()[3]).text();
-        var last_updated = $(this).children()[5];
+        var image_url = $($(this).children()[4]).text();
+        var last_updated = $(this).children()[6];
 
         $("#image-holder").attr("src", image_url);
 
