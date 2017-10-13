@@ -162,10 +162,10 @@ $(document).ready(function() {
     });
 
 
-    $('.buttons-copy').addClass('btn btn-info');
-    $('.buttons-excel').addClass('btn btn-info');
-    $('.buttons-csv').addClass('btn btn-info');
-    $('.buttons-pdf').addClass('btn btn-info');
+    $('.buttons-copy').addClass('btn btn-info btn-sm');
+    $('.buttons-excel').addClass('btn btn-info btn-sm');
+    $('.buttons-csv').addClass('btn btn-info btn-sm');
+    $('.buttons-pdf').addClass('btn btn-info btn-sm');
 
     markers.forEach(function(marker) {
         marker.addListener('click', function() {
