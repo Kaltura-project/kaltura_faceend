@@ -25,3 +25,9 @@ body{
 .pull-right{
     float: right !important;
 }
+#datatable_filter {
+  float: left !important;
+}
+.dt-buttons{
+  float: right !important;
+}

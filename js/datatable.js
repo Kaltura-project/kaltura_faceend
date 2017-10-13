@@ -33,10 +33,15 @@ const db = low(adapter)
 // console.log(foo);
 // console.log('State has been updated')
 // db.set('ID', makeid()).write();
-var dataset = [];
+var dataset = [
+  ["1", "", "Good", "Stop", "Stop", "stop_url", "Timestamp 2"],
+  ["2", "", "Poor", "Yield", "Yld", "yield_url", "Timestamp 1"],
+
+];
+var foo = null;
 $(document).ready(function(){
 
-  $('#datatable').DataTable({
+  var table = $('#datatable').DataTable({
     dom: 'Bfrtip',
     buttons: [
         'copyHtml5',
@@ -44,15 +49,37 @@ $(document).ready(function(){
         'csvHtml5',
         'pdfHtml5'
     ],
-    // data: dataset,
-    // columns: [
-    //  { title: "ID" },
-    //  { title: "Street" },
-    //  { title: "Condition" },
-    //  { title: "Type" },
-    //  { title: "Text" },
-    //  { title: "Image URL" },
-    //  { title: "Last Updated" },
-    // ]
+    data: dataset,
+    columns: [
+     { title: "ID" },
+     { title: "Street" },
+     { title: "Condition" },
+     { title: "Type" },
+     { title: "Text" },
+     { title: "Image URL" },
+     { title: "Last Updated" },
+    ]
   });
+
+
+  $('#datatable tbody').on( 'click', 'tr', function () {
+      console.log(this);
+      foo = this;
+
+      var rid = $(this).children()[0];
+      var street = $(this).children()[1];
+      var condition = $(this).children()[2];
+      var type = $(this).children()[3];
+      var text = $(this).children()[4];
+      var image_url = $(this).children()[5];
+      var last_updated = $(this).children()[6];
+
+      if ( $(this).hasClass('selected') ) {
+          $(this).removeClass('selected');
+      }
+      else {
+          table.$('tr.selected').removeClass('selected');
+          $(this).addClass('selected');
+      }
+  } );
 });
