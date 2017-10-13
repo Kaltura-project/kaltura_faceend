@@ -83,10 +83,10 @@ $(document).ready(function() {
                 title: "Coord"
             },
             {
-                title: "Condition"
+                title: "Type"
             },
             {
-                title: "Type"
+                title: "Condition"
             },
             {
                 title: "Image URL"
@@ -96,13 +96,13 @@ $(document).ready(function() {
             },
         ],
         "columnDefs": [{
-                "targets": [2, 4],
+                "targets": [2],
                 "visible": false
             },
             {
                 targets: 1,
                 render: function(data, type, row) {
-                    return data.substr(0, 31) + '...';
+                    return data.substr(0, Math.round($("body").width() * .018)) + '...';
                 }
             },
         ]
