@@ -78,7 +78,7 @@ $(document).ready(function(){
    "columnDefs": [
             {
                 "targets": [ 4 ],
-                "visible": false
+                // "visible": false
             },
           ]
   });
