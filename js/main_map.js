@@ -35,9 +35,8 @@ function initMap() {
 }
 
 function convertAddress(td) {
-    var coordstring = $(todo).text();
+    var coordstring = $(td).text();
     var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
-    console.log(coords[0]);
     var loc = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
     console.log(loc.lat(), loc.lng());
     geocoder.geocode({
@@ -49,7 +48,7 @@ function convertAddress(td) {
                 alert("Must supply valid address or coordinates.");
             }
             console.log(location);
-            $(tr).text(location);
+            $(td).text(location);
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
