@@ -97,7 +97,16 @@ $(document).ready(function() {
         "columnDefs": [{
             "targets": [2, 4],
             "visible": false
-        }, ]
+        },
+        {
+               targets: 1,
+               render: function ( data, type, row ) {
+                   return data.substr( 0, 31 ) + '...';
+               }
+           } ,
+
+
+      ]
     });
 
     $('#datatable tbody').on('click', 'tr', function() {
