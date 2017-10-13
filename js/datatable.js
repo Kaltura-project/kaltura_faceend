@@ -85,18 +85,11 @@ $(document).ready(function() {
 
             var coordstring = dataset[index][2];
             var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
-
             $('td', row).eq(1).attr("address", dataset[index][1]);
-
-            console.log('coords ' + coords);
+            $('td', row).eq(1).attr("img", dataset[index][5]);
             var coordId = coords.join('-').replace(/\./g, '').replace(/-/g, '');
-
-            // var coordId = coords.join('-').substr( 0, 31 );
-            // var coordId = coords.join('-').hashCode();
-            console.log('coords ' + coordId);
             $(row).attr('id', coordId);
             markers.push(addMarker(null, coords[0], coords[1], null, coordId));
-
         },
         dom: 'Bfrtip',
         buttons: [
@@ -151,7 +144,7 @@ $(document).ready(function() {
         // var coord = $($(this).children()[2]).text();
         // var condition = $(this).children()[2];
         // var type = $(this).children()[3];
-        var image_url = $($(this).children()[4]).text();
+        var image_url = $($(this).children()[1]).attr("img");
         var last_updated = $(this).children()[6];
 
         $("#image-holder").attr("src", image_url);
