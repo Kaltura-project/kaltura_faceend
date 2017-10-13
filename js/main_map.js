@@ -2,6 +2,7 @@ var map;
 var geocoder;
 var markerarray = [];
 
+// Callback function for initializing the map.
 function initMap() {
     var mapDiv = document.getElementById('map');
     geocoder = new google.maps.Geocoder();
@@ -30,11 +31,8 @@ function initMap() {
         streetViewControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         }
-
-
     });
 }
-
 
 function adjustViewport() {
     if (markerarray.length == 0) {
@@ -52,23 +50,9 @@ function adjustViewport() {
     }
 }
 
-function codeAddress(address) {
-    geocoder.geocode({
-        'address': address
-    }, function(results, status) {
-        if (status == 'OK') {
-            location = results[0].geometry.location;
-            if (location == null) {
-                alert("Must supply valid address or coordinates.");
-            }
-
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-            return null;
-        }
-    });
-}
-
+// Add a Marker at a location on the map.
+// Use addr string OR lat and lon coordinates.
+// loctitle is the title of the marker.
 function addMarker(addr, lat, lon, loctitle) {
     var location;
     if (lat == null || lon == null) {
@@ -91,6 +75,7 @@ function addMarker(addr, lat, lon, loctitle) {
     }
 }
 
+// Helper function for addMarker.
 function placeMarker(location, loctitle) {
     var marker = new google.maps.Marker({
         map: map,
@@ -107,6 +92,9 @@ function placeMarker(location, loctitle) {
     adjustViewport();
 }
 
+// Remove a particular Marker from the map.
+// Use addr string OR lat and lon coordinates.
+// loctitle is the title of the marker.
 function removeMarker(addr, lat, lon, loctitle) {
     if (lat == null || lon == null) {
         geocoder.geocode({
@@ -128,21 +116,21 @@ function removeMarker(addr, lat, lon, loctitle) {
     }
 }
 
+// Helper function for removeMarker.
 function liftMarker(location) {
     var rdx = markerarray.findIndex(i => (i.position.lat() == location.lat() && i.position.lng() == location.lng()));
     if (rdx > -1) {
         markerarray[rdx].setMap(null);
         markerarray.splice(rdx, 1);
     }
-
     adjustViewport();
 }
 
+// Remove all markers from the map.
 function removeAllMarkers() {
     for (var i = 0; i < markerarray.length; i++) {
         markerarray[i].setMap(null);
     }
     markerarray = [];
-
     adjustViewport();
 }
