@@ -121,7 +121,7 @@ $(document).ready(function() {
 
         // Google Map View Port Manipulation
         removeAllMarkers();
-        removeMarker(street, null, null, street);
+        addMarker(street, null, null, street);
 
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
