@@ -80,10 +80,10 @@ $(document).ready(function() {
                 title: "Coord"
             },
             {
-                title: "Condition"
+                title: "Type"
             },
             {
-                title: "Type"
+                title: "Condition"
             },
             {
                 title: "Image URL"
