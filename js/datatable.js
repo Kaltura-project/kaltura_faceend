@@ -83,12 +83,14 @@ $(document).ready(function() {
     table = $('#datatable').DataTable({
         "createdRow": function(row, data, index) {
 
+
             var coordstring = dataset[index][2];
             var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
             $('td', row).eq(1).attr("address", dataset[index][1]);
             $('td', row).eq(1).attr("img", dataset[index][5]);
             var coordId = coords.join('-').replace(/\./g, '').replace(/-/g, '');
             $(row).attr('id', coordId);
+            var type = dataset[index][3];
             markers.push(addMarker(null, coords[0], coords[1], null, coordId));
         },
         dom: 'Bfrtip',

@@ -1,6 +1,7 @@
 var map;
 var geocoder;
 var markerarray = [];
+var markermapper = {};
 
 // Callback function for initializing the map.
 function initMap() {
@@ -78,8 +79,15 @@ function addMarker(addr, lat, lon, loctitle, rowId) {
 
 // Helper function for addMarker.
 function placeMarker(location, loctitle, rowId) {
+   // TODO: make take an argument of type and switch to the right url
+
+    var icon_url = 'img/stop_icon.png';
+    var icon_url = 'img/yield_icon.png';
+    var icon_url = 'img/signal_icon.png';
+    // icon_url = 'https://image.flaticon.com/icons/png/128/567/567385.png';
     var marker = new google.maps.Marker({
         map: map,
+        icon: icon_url,
         draggable: false,
         animation: google.maps.Animation.DROP,
         position: location,
