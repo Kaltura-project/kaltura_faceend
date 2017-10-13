@@ -109,4 +109,11 @@ $(document).ready(function(){
           $(this).addClass('selected');
       }
   } );
+
+
+  $('.buttons-copy').addClass('btn btn-info');
+  $('.buttons-excel').addClass('btn btn-info');
+  $('.buttons-csv').addClass('btn btn-info');
+  $('.buttons-pdf').addClass('btn btn-info');
+
 });
