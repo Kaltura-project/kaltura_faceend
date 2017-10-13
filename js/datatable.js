@@ -56,14 +56,27 @@ var dataset = [
     ["yetw-2acc", "17701-18109,Orangelawn Street,Detroit, MI 48227, USA", "(42.3674740646073 -83.21578257192174)", "STOP", "GOOD", "img/15.png", "1/3/10"]
 ];
 var foo = null;
+var markers = [];
+var table = null;
 $(document).ready(function() {
 
-    var table = $('#datatable').DataTable({
+    table = $('#datatable').DataTable({
         "createdRow": function(row, data, index) {
+
             var coordstring = dataset[index][2];
             var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
-            addMarker(null, coords[0], coords[1], null);
+
             $('td', row).eq(1).attr("address", dataset[index][1]);
+
+            console.log('coords ' + coords);
+            var coordId = coords.join('-').replace(/\./g, '').replace(/-/g, '');
+
+            // var coordId = coords.join('-').substr( 0, 31 );
+            // var coordId = coords.join('-').hashCode();
+            console.log('coords ' +  coordId);
+            $(row).attr('id', coordId);
+            markers.push(addMarker(null, coords[0], coords[1], null, coordId));
+
         },
         dom: 'Bfrtip',
         buttons: [
@@ -140,4 +153,59 @@ $(document).ready(function() {
     $('.buttons-excel').addClass('btn btn-info');
     $('.buttons-csv').addClass('btn btn-info');
     $('.buttons-pdf').addClass('btn btn-info');
+
+    markers.forEach(function(marker) {
+      marker.addListener('click', function() {
+        var lat = marker.position.lat();
+        var lng = marker.position.lng();
+
+        console.log('lat ' +lat);
+        console.log('lng ' +lng);
+        var coordId = lat + "" + lng + "";
+        console.log('coordId ' + coordId);
+        var coords = coordId.split(".").join("").split("-").join('');
+        console.log(coords);
+
+        console.log($('#' + coords));
+        domObj = $('#' + coords);
+
+        // var table = domObj.parent().parent();
+
+        table.rows().deselect();
+        table.row('#' + coords).select();
+        // if (domObj.hasClass('selected')) {
+        //     domObj.removeClass('selected');
+        // } else {
+        //     domObj.parent().parent().find('tr.selected').removeClass('selected');
+        //     domObj.addClass('selected');
+        // }
+
+        // console.log(marker)
+        // var coordId = marker.position.lat() + "-" + marker.position.lng();
+        // coordId = coordId;
+        // // // coordId = coordId.hashCode();
+        // // console.log('coordId in addListener '+ coordId);
+        // //   // console.log(marker.position.lat(), marker.position.lng());
+        // //   console.log(coordId);
+        // //   console.log($("#"+coordId));
+        // //   console.log($("#"+coordId).html());
+        //   console.log('rowId ' + rowId);
+        //   console.log($('#'+rowId));
+        //
+        //   if ($('#'+rowId).hasClass('selected')) {
+        //       $('#'+rowId).removeClass('selected');
+        //   } else {
+        //       $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
+        //       $('#'+rowId).addClass('selected');
+        //   }
+        //   // $('#'+rowId).hasClass('selected');
+        //   console.log('#'+rowId + ' added with class selected ');
+        //   // $('#'+rowId).removeClass('selected');
+        //   console.log($('#'+rowId).parent().parent());
+        //   $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
+        //
+        //   //TODO: HAN
+
+      });
+    });
 });

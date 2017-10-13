@@ -18,8 +18,17 @@
     <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
 
     <!-- dataTables and other component dependencies -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/cr-1.4.1/sl-1.2.3/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/af-2.2.2/cr-1.4.1/sl-1.2.3/datatables.min.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/r-2.2.0/rr-1.2.3/sl-1.2.3/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.4.2/b-colvis-1.4.2/b-html5-1.4.2/b-print-1.4.2/cr-1.4.1/r-2.2.0/rr-1.2.3/sl-1.2.3/datatables.min.js"></script>
     <script src="https://unpkg.com/lodash@4/lodash.min.js"></script>
     <script src="https://unpkg.com/lowdb@0.17/dist/low.min.js"></script>
     <script src="https://unpkg.com/lowdb@0.17/dist/LocalStorage.min.js"></script>
@@ -29,6 +38,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
 
+    <script>
+    String.prototype.hashCode = function(){
+    	var hash = 0;
+    	if (this.length == 0) return hash;
+    	for (i = 0; i < this.length; i++) {
+    		char = this.charCodeAt(i);
+    		hash = ((hash<<5)-hash)+char;
+    		hash = hash & hash; // Convert to 32bit integer
+    	}
+    	return hash;
+    }
+    </script>
     <!-- Maps Javascript API (Key AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo) -->
     <script src="js/main_map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxPrqzrIjyn_8Siis74ScIOGYM1NcscYo&callback=initMap" async defer></script>
