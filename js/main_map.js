@@ -54,7 +54,7 @@ function adjustViewport() {
 // Add a Marker at a location on the map.
 // Use addr string OR lat and lon coordinates.
 // loctitle is the title of the marker.
-function addMarker(addr, lat, lon, loctitle, rowId) {
+function addMarker(addr, lat, lon, loctitle, rowId, type) {
   console.log('rowId is '+ rowId);
     var location;
     if (lat == null || lon == null) {
@@ -66,19 +66,19 @@ function addMarker(addr, lat, lon, loctitle, rowId) {
                 if (location == null) {
                     alert("Must supply valid address or coordinates.");
                 }
-                return placeMarker(location, loctitle, rowId);
+                return placeMarker(location, loctitle, rowId, type);
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
         });
     } else {
         location = new google.maps.LatLng(lat, lon);
-        return placeMarker(location, loctitle, rowId);
+        return placeMarker(location, loctitle, rowId, type);
     }
 }
 
 // Helper function for addMarker.
-function placeMarker(location, loctitle, rowId) {
+function placeMarker(location, loctitle, rowId, type) {
    // TODO: make take an argument of type and switch to the right url
 
     var icon_url = 'img/stop_icon.png';
@@ -93,36 +93,6 @@ function placeMarker(location, loctitle, rowId) {
         position: location,
         title: loctitle
     });
-
-    // marker.addListener('click', function() {
-    //   var coordId = marker.position.lat() + "-" + marker.position.lng();
-    //   coordId = coordId;
-    //   // // coordId = coordId.hashCode();
-    //   // console.log('coordId in addListener '+ coordId);
-    //   //   // console.log(marker.position.lat(), marker.position.lng());
-    //   //   console.log(coordId);
-    //   //   console.log($("#"+coordId));
-    //   //   console.log($("#"+coordId).html());
-    //     console.log('rowId ' + rowId);
-    //     console.log($('#'+rowId));
-    //
-    //
-    //     if ($('#'+rowId).hasClass('selected')) {
-    //         $('#'+rowId).removeClass('selected');
-    //     } else {
-    //         $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
-    //         $('#'+rowId).addClass('selected');
-    //     }
-    //     // $('#'+rowId).hasClass('selected');
-    //     console.log('#'+rowId + ' added with class selected ');
-    //     // $('#'+rowId).removeClass('selected');
-    //     console.log($('#'+rowId).parent().parent());
-    //     $('#'+rowId).parent().parent().find('tr.selected').removeClass('selected');
-    //
-    //     //TODO: HAN
-    //     // console.log($(coordId).html());
-    //     // $()
-    // });
 
     if (loctitle != null) {
         var infowindow = new google.maps.InfoWindow({

@@ -91,7 +91,7 @@ $(document).ready(function() {
             var coordId = coords.join('-').replace(/\./g, '').replace(/-/g, '');
             $(row).attr('id', coordId);
             var type = dataset[index][3];
-            markers.push(addMarker(null, coords[0], coords[1], null, coordId));
+            markers.push(addMarker(null, coords[0], coords[1], null, coordId, type));
         },
         dom: 'Bfrtip',
         buttons: [
