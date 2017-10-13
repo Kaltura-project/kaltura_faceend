@@ -34,6 +34,28 @@ function initMap() {
     });
 }
 
+function convertAddress(td) {
+    var coordstring = $(todo).text();
+    var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
+    console.log(coords[0]);
+    var loc = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+    console.log(loc.lat(), loc.lng());
+    geocoder.geocode({
+        'location': loc
+    }, function(results, status) {
+        if (status == 'OK') {
+            var location = results[0].formatted_address;
+            if (location == null) {
+                alert("Must supply valid address or coordinates.");
+            }
+            console.log(location);
+            $(tr).text(location);
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+
 function adjustViewport() {
     if (markerarray.length == 0) {
         map.setCenter(new google.maps.LatLng(39.8282, -98.5795));
