@@ -1,0 +1,21 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+#map{
+    height: 45vh;
+}
+.container-fluid{
+    margin-top: 2vh;
+}
+.kaltura-image{
+    background-color: blue;
+    height: 45vh;
+}
+.kaltura-datatable{
+    height: 100%;
+}
