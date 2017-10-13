@@ -31,3 +31,15 @@ body{
 .dt-buttons{
   float: right !important;
 }
+table.dataTable tbody > tr.selected {
+  background-color: #007bff
+}
+table.dataTable.display tbody > tr.even.selected > .sorting_1  {
+  background-color: #007bff
+}
+table.dataTable.stripe tbody>tr.odd.selected, table.dataTable.stripe tbody>tr.odd>.selected, table.dataTable.display tbody>tr.odd.selected, table.dataTable.display tbody>tr.odd>.selected {
+  background-color: #007bff
+}
+table.dataTable.display tbody>tr.odd.selected>.sorting_1{
+  background-color: #007bff
+}
