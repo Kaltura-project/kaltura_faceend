@@ -1,7 +1,6 @@
 var map;
 var geocoder;
 var markerarray = [];
-var markermapper = {};
 
 // Callback function for initializing the map.
 function initMap() {
@@ -54,8 +53,7 @@ function adjustViewport() {
 // Add a Marker at a location on the map.
 // Use addr string OR lat and lon coordinates.
 // loctitle is the title of the marker.
-function addMarker(addr, lat, lon, loctitle, rowId, type) {
-    console.log('rowId is ' + rowId);
+function addMarker(addr, lat, lon, loctitle, id, type) {
     var location;
     if (lat == null || lon == null) {
         geocoder.geocode({
@@ -66,20 +64,19 @@ function addMarker(addr, lat, lon, loctitle, rowId, type) {
                 if (location == null) {
                     alert("Must supply valid address or coordinates.");
                 }
-                return placeMarker(location, loctitle, rowId, type);
+                return placeMarker(location, loctitle, id, type);
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
         });
     } else {
         location = new google.maps.LatLng(lat, lon);
-        return placeMarker(location, loctitle, rowId, type);
+        return placeMarker(location, loctitle, id, type);
     }
 }
 
 // Helper function for addMarker.
-function placeMarker(location, loctitle, rowId, type) {
-    // TODO: make take an argument of type and switch to the right url
+function placeMarker(location, loctitle, markerid, type) {
     var icon_url;
     switch (type) {
         case "STOP":
@@ -91,17 +88,15 @@ function placeMarker(location, loctitle, rowId, type) {
         case "SIGNAL":
             icon_url = 'img/signal_icon.png';
     }
-    console.log(type, icon_url);
-    // icon_url = 'https://image.flaticon.com/icons/png/128/567/567385.png';
     var marker = new google.maps.Marker({
         map: map,
         icon: icon_url,
         draggable: false,
         animation: google.maps.Animation.DROP,
         position: location,
-        title: loctitle
+        title: loctitle,
+        id: markerid
     });
-
     if (loctitle != null) {
         var infowindow = new google.maps.InfoWindow({
             content: loctitle
