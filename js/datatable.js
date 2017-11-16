@@ -1,7 +1,7 @@
 var dataset = [
-    ["1sdf-aesd", "W Main St, New York, NY 10044, USA", "(40.756612, -73.955815)","STOP","GOOD","img/1.png","21/06/15"],
-    ["2ads-sdfk", "W Main St, New York, NY 10044, USA", "(40.757809, -73.954789)","STOP","GOOD","img/1.png","21/06/15"],
-    ["3lks-lklk", "W Main St, New York, NY 10044, USA", "(40.759197, -73.953445)","STOP","GOOD","img/1.png","21/06/15"],
+    ["1sdf-aesd", "W Main St, New York, NY 10044, USA", "(40.756612 -73.955815)","STOP","GOOD","img/1.png","21/06/15"],
+    ["2ads-sdfk", "W Main St, New York, NY 10044, USA", "(40.757809 -73.954789)","STOP","GOOD","img/1.png","21/06/15"],
+    ["3lks-lklk", "W Main St, New York, NY 10044, USA", "(40.759197 -73.953445)","STOP","GOOD","img/1.png","21/06/15"]
     // ["4dsi-caex", "16301-16399 Elmira St, Detroit, MI 48227, USA", "(42.370016069270704 -83.20635641917033)", "STOP", "GOOD", "img/1.png", "21/06/15"],
     // ["7vky-j4pn", "16301-16399 Orangelawn St, Detroit, MI 48227, USA", "(42.36767742985984 -83.2062402542254)", "STOP", "GOOD", "img/2.png", "02/03/08"],
     // ["m4qe-tv9n", "16231 Plymouth Rd, Detroit, MI 48227, USA", "(42.37243702723885 -83.20526145747874)", "STOP", "DAMAGED", "img/3.png", "04/05/12"],
