@@ -8,8 +8,10 @@ function initMap() {
     geocoder = new google.maps.Geocoder();
     map = new google.maps.Map(mapDiv, {
         center: {
-            lat: 39.8282,
-            lng: -98.5795
+            // lat: 39.8282,
+            // lng: -98.5795
+            lat: 40.759197,
+            lng: -73.953445
         },
         zoom: 4,
         zoomControl: true,
