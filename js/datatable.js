@@ -1,3 +1,4 @@
+var STREET_OVERRIDE = true;
 var foo = null;
 var markers = [];
 var table = null;
@@ -34,6 +35,14 @@ function styletable() {
 }
 
 function loadtable(dataset){
+    // street override tmp
+    var d = [];
+    dataset.forEach(function(e) {
+        if (STREET_OVERRIDE) {
+            e[1] = "W Main St, New York 11004, USA";
+        }
+        d.push(e);
+    });
     // create the dataTable
     table = $('#datatable').DataTable({
         "createdRow": function(row, data, index) {
@@ -53,7 +62,7 @@ function loadtable(dataset){
             'csvHtml5',
             'pdfHtml5'
         ],
-        data: dataset,
+        data: d,
         columns: [{
                 title: "ID"
             },
