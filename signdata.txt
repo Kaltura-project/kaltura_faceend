@@ -1,1 +1,0 @@
-["1sdf-aesd","W Main St, New York, NY 10044, USA","(40.756612, -73.955815)","STOP","GOOD","img/1.png","21/06/15"]

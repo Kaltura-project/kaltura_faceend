@@ -88,8 +88,6 @@ def sign_detect():
         global current
 
         cap = cv2.VideoCapture(CAPTURE_SOURCE + ".mp4")
-        fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        out = cv2.VideoWriter('output3.avi', fourcc, 30, (1280, 720))
         gps = open(CAPTURE_SOURCE + ".csv")
         counter = 0
 
@@ -102,7 +100,6 @@ def sign_detect():
             ret, frame = cap.read()
             if(not ret):
                 cv2.destroyAllWindows()
-                out.release()
                 cap.release()
                 return
             h, w, l = frame.shape
@@ -112,9 +109,11 @@ def sign_detect():
             if counter == 1 or counter == 16:
                 current = gps.readline().split(",")
 
-            if(counter % 10 == 0):
+            if(counter_overall % 60 == 0):
                 rec_school = []
                 rec_stop = []
+
+            if(counter % 10 == 0):
                 rec_stop = detect_sign(frame, gray, stop_cascade, "STOP", rec_stop)
                 rec_school = detect_sign(frame, gray, school_cascade,
                                          "SCHOOL CROSSING", rec_school)
@@ -128,7 +127,6 @@ def sign_detect():
             if(rec_school != []):
                 cv2.rectangle(frame, rec_school[0], rec_school[1], (0, 255, 0), 4)
 
-            out.write(frame)
             cv2.imshow("frame", frame)
             cv2.waitKey(1)
 
@@ -136,7 +134,6 @@ def sign_detect():
         pass
     finally:
         cv2.destroyAllWindows()
-        out.release()
         cap.release()
 
 if __name__ == "__main__":
