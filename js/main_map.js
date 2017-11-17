@@ -64,11 +64,11 @@ function addMarker(addr, lat, lon, loctitle, id, type) {
             if (status == 'OK') {
                 location = results[0].geometry.location;
                 if (location == null) {
-                    alert("Must supply valid address or coordinates.");
+                    console.log("Must supply valid address or coordinates.");
                 }
                 return placeMarker(location, loctitle, id, type);
             } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+                console.log('Geocode was not successful for the following reason: ' + status);
             }
         });
     } else {
@@ -122,11 +122,11 @@ function removeMarker(addr, lat, lon, loctitle) {
             if (status == 'OK') {
                 var location = results[0].geometry.location;
                 if (location == null) {
-                    alert("Must supply valid address or coordinates.");
+                    console.log("Must supply valid address or coordinates.");
                 }
                 liftMarker(location);
             } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+                console.log('Geocode was not successful for the following reason: ' + status);
             }
         });
     } else {
