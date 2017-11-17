@@ -1,0 +1,2 @@
+FILE_PATH="/home/vijay/Documents/cmpt-classes/product_studio/kaltura_faceend"
+* * * * * python $FILE_PATH/sync.py >> $FILE_PATH/sync.log
