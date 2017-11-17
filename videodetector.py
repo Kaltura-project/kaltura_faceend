@@ -144,6 +144,25 @@ if __name__ == "__main__":
         os.mkdir("./detected")
     sign_detect()
     data["signs"] = datalist
-    f = open("signs.json", "a+")
-    f.write(json.dumps(data, indent=4))
-    f.close()
+    addbeg = False
+    lines = []
+    if(not os.path.isfile("signs.json")):
+        addbeg = True
+    else:
+        f = open("signs.json", "r+")
+        lines = f.readlines()
+        lines = lines[:-2]
+        f.close()
+    g = open("signs.json", "w+")
+    if(addbeg):
+        g.write("{\n")
+        g.write("""    "allsigns": [\n""")
+    else:
+        for line in lines:
+            g.write(line)
+        g.write(",\n")
+    g.write(json.dumps(data, indent=4))
+    g.write("\n")
+    g.write("    ]\n")
+    g.write("}\n")
+    g.close()

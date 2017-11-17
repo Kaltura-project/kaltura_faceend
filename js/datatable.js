@@ -39,7 +39,7 @@ function loadtable(dataset){
     var d = [];
     dataset.forEach(function(e) {
         if (STREET_OVERRIDE) {
-            e[1] = "W Main St, New York 11004, USA";
+            e[1] = "W Main St, New York, New York, 10044, USA";
         }
         d.push(e);
     });
@@ -141,11 +141,15 @@ function loadtable(dataset){
         });
     });
 }
+
 $.getJSON("signs.json", function(json) {
-    var nsigns = []
-    var signs = json['signs']
-    for (var i = 0; i < signs.length; i++) {
-        nsigns[i] = $.map(signs[i], function(el) { return el });
+    var nsigns = [];
+    var sets = json['allsigns'];
+    for (var i = 0; i < sets.length; i++) {
+        signs = sets[i]['signs'];
+        for (var j = 0; j < signs.length; j++) {
+            nsigns.push($.map(signs[j], function(el) { return el }));
+        }
     }
     loadtable(nsigns);
 });
