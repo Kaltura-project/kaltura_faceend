@@ -1,13 +1,20 @@
 import os
 import time
 
+import sys
+
+current_path = sys.argv[1]
+
 
 def call_classifier(foldername, filename):
     full_path_input_file = (foldername + filename).split(".")[0]
-    print('./videodetector' + filename)
+    cmd = './videodetector ' + foldername + filename
+    print(cmd)
+    os.system(cmd)
 
-
-output = os.system("rsync -avz root@35.196.83.72:/home/hanqijing/video-poster/uploads/ uploads/")
+print("rsync -avz root@35.196.83.72:/home/hanqijing/video-poster/uploads/ " + current_path + "/uploads/")
+output = os.system(
+    "rsync -avz root@35.196.83.72:/home/hanqijing/video-poster/uploads/ " + current_path + "/uploads/")
 
 print('Download the new video list...')
 print(output)
