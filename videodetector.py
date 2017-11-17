@@ -92,7 +92,7 @@ def sign_detect():
         counter = 0
 
         rec_stop = []
-        rec_school = []
+        # rec_school = []
 
         while cap.isOpened():
             counter += 1
@@ -109,14 +109,15 @@ def sign_detect():
             if counter == 1 or counter == 16:
                 current = gps.readline().split(",")
 
-            if(counter_overall % 60 == 0):
-                rec_school = []
+            if(counter_overall % 90 == 0):
+                # rec_school = []
                 rec_stop = []
 
             if(counter % 10 == 0):
-                rec_stop = detect_sign(frame, gray, stop_cascade, "STOP", rec_stop)
-                rec_school = detect_sign(frame, gray, school_cascade,
-                                         "SCHOOL CROSSING", rec_school)
+                rec_stop_tmp = detect_sign(frame, gray, stop_cascade, "STOP", rec_stop)
+                if(rec_stop_tmp != []):
+                    rec_stop = rec_stop_tmp
+                # rec_school = detect_sign(frame, gray, school_cascade, "SCHOOL CROSSING", rec_school)
 
             if(counter == 30):
                 counter = 0
@@ -124,8 +125,8 @@ def sign_detect():
             if(rec_stop != []):
                 cv2.rectangle(frame, rec_stop[0], rec_stop[1], (255, 0, 0), 4)
 
-            if(rec_school != []):
-                cv2.rectangle(frame, rec_school[0], rec_school[1], (0, 255, 0), 4)
+            # if(rec_school != []):
+            #     cv2.rectangle(frame, rec_school[0], rec_school[1], (0, 255, 0), 4)
 
             cv2.imshow("frame", frame)
             cv2.waitKey(1)
