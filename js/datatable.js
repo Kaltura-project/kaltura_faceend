@@ -54,6 +54,8 @@ function loadtable(dataset){
             var coords = coordstring.substring(1, coordstring.length - 1).split(" ");
             var type = dataset[index][3];
             markers.push(addMarker(null, coords[0], coords[1], null, id, type));
+            $('td', row).eq(1).attr("longitude", coords[0]);
+            $('td', row).eq(1).attr("latitude", coords[1]);
         },
         dom: 'Bfrtip',
         buttons: [
@@ -114,12 +116,14 @@ function loadtable(dataset){
         var type = $($(this).children()[2]).text();
         var image_url = $($(this).children()[1]).attr("img");
         var last_updated = $(this).children()[6];
+        var longitude = $($(this).children()[1]).attr("longitude");
+        var latitude = $($(this).children()[1]).attr("latitude");
 
         $("#image-holder").attr("src", image_url);
 
         // Google Map View Port Manipulation
         removeAllMarkers();
-        addMarker(street, null, null, street, rid, type);
+        addMarker(street, longitude, latitude, null, rid, type);
 
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');

@@ -3,48 +3,48 @@
 {
     "signs": [
         {
-            "signid": "70db244e0bdb",
+            "signid": "8526c8b61d7c",
             "address": "",
             "gps": "(40.756617 -73.955826)",
             "signtype": "STOP",
             "signcondition": "DAMAGED",
-            "image_url": "detected/70db244e0bdb.png",
+            "image_url": "detected/8526c8b61d7c.png",
             "date": "17/11/17"
         },
         {
-            "signid": "5490ea972c43",
+            "signid": "b373c1ff8fe9",
             "address": "",
             "gps": "(40.756654 -73.955745)",
             "signtype": "STOP",
-            "signcondition": "DAMAGED",
-            "image_url": "detected/5490ea972c43.png",
+            "signcondition": "GOOD",
+            "image_url": "detected/b373c1ff8fe9.png",
             "date": "17/11/17"
         },
         {
-            "signid": "f1ecce89caac",
+            "signid": "bb7d74966116",
             "address": "",
             "gps": "(40.757794 -73.954812)",
             "signtype": "STOP",
-            "signcondition": "GOOD",
-            "image_url": "detected/f1ecce89caac.png",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/bb7d74966116.png",
             "date": "17/11/17"
         },
         {
-            "signid": "1ddf60bbd5c6",
+            "signid": "888cc2598080",
             "address": "",
             "gps": "(40.757855 -73.954761)",
             "signtype": "STOP",
             "signcondition": "DAMAGED",
-            "image_url": "detected/1ddf60bbd5c6.png",
+            "image_url": "detected/888cc2598080.png",
             "date": "17/11/17"
         },
         {
-            "signid": "fc6f98bd65f0",
+            "signid": "955a3309ec35",
             "address": "",
             "gps": "(40.758968 -73.953740)",
             "signtype": "STOP",
-            "signcondition": "GOOD",
-            "image_url": "detected/fc6f98bd65f0.png",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/955a3309ec35.png",
             "date": "17/11/17"
         }
     ]
@@ -53,39 +53,39 @@
 {
     "signs": [
         {
-            "signid": "2f0e1da952f8",
+            "signid": "115ec31edfce",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.755459 -73.954958)",
             "signtype": "STOP",
             "signcondition": "GOOD",
-            "image_url": "detected/2f0e1da952f8.png",
+            "image_url": "detected/115ec31edfce.png",
             "date": "17/11/17"
         },
         {
-            "signid": "956b8e8fd65c",
+            "signid": "17c34ae5c576",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.755196 -73.955064)",
             "signtype": "STOP",
             "signcondition": "DAMAGED",
-            "image_url": "detected/956b8e8fd65c.png",
+            "image_url": "detected/17c34ae5c576.png",
             "date": "17/11/17"
         },
         {
-            "signid": "02dc2ff73294",
+            "signid": "43decb43cd5d",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.752929 -73.957370)",
             "signtype": "STOP",
             "signcondition": "DAMAGED",
-            "image_url": "detected/02dc2ff73294.png",
+            "image_url": "detected/43decb43cd5d.png",
             "date": "17/11/17"
         },
         {
-            "signid": "96626e17d518",
+            "signid": "6c5b67b1557f",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.755548 -73.956836)",
             "signtype": "STOP",
             "signcondition": "DAMAGED",
-            "image_url": "detected/96626e17d518.png",
+            "image_url": "detected/6c5b67b1557f.png",
             "date": "17/11/17"
         }
     ]
@@ -94,30 +94,30 @@
 {
     "signs": [
         {
-            "signid": "a5c36a8ab886",
+            "signid": "a2da63c34e8e",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.756936 -73.953056)",
             "signtype": "STOP",
             "signcondition": "DAMAGED",
-            "image_url": "detected/a5c36a8ab886.png",
+            "image_url": "detected/a2da63c34e8e.png",
             "date": "17/11/17"
         },
         {
-            "signid": "dc9d96edccc9",
+            "signid": "5f1be02ee875",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.758153 -73.952957)",
             "signtype": "STOP",
-            "signcondition": "GOOD",
-            "image_url": "detected/dc9d96edccc9.png",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/5f1be02ee875.png",
             "date": "17/11/17"
         },
         {
-            "signid": "f8418ec009b7",
+            "signid": "77714748f3b6",
             "address": "",
-            "gps": "(0 0)",
+            "gps": "(40.759308 -73.951884)",
             "signtype": "STOP",
-            "signcondition": "GOOD",
-            "image_url": "detected/f8418ec009b7.png",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/77714748f3b6.png",
             "date": "17/11/17"
         }
     ]
