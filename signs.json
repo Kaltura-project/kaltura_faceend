@@ -1,0 +1,49 @@
+{
+    "signs": [
+        {
+            "signid": "675af6afb481",
+            "address": "",
+            "gps": "(longitude latitude)",
+            "signtype": "STOP",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/675af6afb481.png",
+            "date": "16/11/17"
+        },
+        {
+            "signid": "66fbd2e18579",
+            "address": "",
+            "gps": "(longitude latitude)",
+            "signtype": "STOP",
+            "signcondition": "GOOD",
+            "image_url": "detected/66fbd2e18579.png",
+            "date": "16/11/17"
+        },
+        {
+            "signid": "6422748cdc65",
+            "address": "",
+            "gps": "(longitude latitude)",
+            "signtype": "STOP",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/6422748cdc65.png",
+            "date": "16/11/17"
+        },
+        {
+            "signid": "ec44a748ebe8",
+            "address": "",
+            "gps": "(longitude latitude)",
+            "signtype": "STOP",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/ec44a748ebe8.png",
+            "date": "16/11/17"
+        },
+        {
+            "signid": "6b291de7904c",
+            "address": "",
+            "gps": "(longitude latitude)",
+            "signtype": "STOP",
+            "signcondition": "DAMAGED",
+            "image_url": "detected/6b291de7904c.png",
+            "date": "16/11/17"
+        }
+    ]
+}
