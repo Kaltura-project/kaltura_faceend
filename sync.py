@@ -7,8 +7,8 @@ current_path = sys.argv[1]
 
 
 def call_classifier(foldername, filename):
-    full_path_input_file = (foldername + filename).split(".")[0]
-    cmd = './videodetector ' + foldername + filename
+    full_path_input_file = filename.split(".")[0]
+    cmd = './videodetector.py ' + foldername + "/uploads/" + full_path_input_file
     print(cmd)
     os.system(cmd)
 
@@ -34,6 +34,7 @@ for filename in os.listdir(foldername):
     if filename.endswith(".finished"):
         finished_list.add(filename)
 
+print('start looping through all files')
 # For each file in the folder
 # grab the file that have not been classified yet
 # classify them
@@ -49,7 +50,7 @@ for filename in os.listdir(foldername):
         # if float(time.time() - mtime) <= 500 and
         if finished_stamp not in finished_list:
             # call vijay pipeline
-            call_classifier(foldername, filename)
+            call_classifier(current_path, filename)
 
             # print a time stamp to show the file is processed
             stamp(foldername, filename)
